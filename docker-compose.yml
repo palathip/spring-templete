@@ -1,0 +1,23 @@
+version: '3'
+services:
+  java8:
+    image: openjdk:8-jre
+    restart: "always"
+    environment:
+      - "TZ=Asia/Bangkok"
+#    hostname: "register.thaihealth.or.th"
+#    network_mode: "host"
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./build:/build:rw"
+#      - "./src/main/java/com/thaihealth/app/public/meeting:/src/main/java/com/thaihealth/app/public/meeting:rw"
+#      - "./src/main/java/com/thaihealth/app/public/event:/src/main/java/com/thaihealth/app/public/event:rw"
+#      - "./logs:/logs:rw"
+#      - "./src/main/resources/event:/src/main/resources/event:rw"
+#      - "./src/main/resources/event:/build/resources/main/event:rw"
+#      - "./src/main/resources/meeting:/src/main/resources/meeting:rw"
+#      - "./src/main/resources/meeting:/build/resources/main/meeting:rw"
+#      - "./src/main/resources/sss_img:/src/main/resources/sss_img:rw"
+#      - "./thaihealth.p12:/thaihealth.p12"
+    entrypoint: ["java", "-jar", "-Dspring.profiles.active=prod", "/build/libs/roy-0.1.jar"]

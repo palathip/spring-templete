@@ -1,0 +1,6 @@
+.gradle
+.idea
+logs
+LOGS_IS_UNDEFINED
+build
+src/main/resources/application-local.properties
